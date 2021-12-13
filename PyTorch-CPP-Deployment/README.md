@@ -29,7 +29,7 @@ This repository contains a sample example for deploying a PyTorch powered C++ ap
 
 ### Installation
 
-Clone the repository in your ```/usr/local/``` directory, and download the LibTorch library.
+Clone the repository in an empty directory, and download the LibTorch library.
 ```bash
 git clone https://github.com/lens-corp/LENS-deploy.git
 cd LENS-deploy/PyTorch-CPP-Deployment
@@ -48,12 +48,12 @@ rm opencv.zip
 mkdir -p opencv && cd opencv
 cmake -DBUILD_EXAMPLES=OFF -DBUILD_TESTS=OFF -DBUILD_PERF_TESTS=OFF -DBUILD_opencv_apps=OFF ../opencv-master
 cmake --build . -j12
-cd ..
+cd .. && cd ..
 ```
 This installs all the static libraries required for Opencv and OpenCV itself as well. The next step now is to build the application. This can be done using:
 ```bash
 mkdir build && cd build
-cmake -DCMAKE_PREFIX_PATH=/usr/local/LENS-DEPLOY/PyTorch-CPP-Deployment/src/libtorch .. && make -j32
+cmake -DCMAKE_PREFIX_PATH=$(pwd)/../libtorch .. && make -j32
 ```
 This would add an application by name of infer-app in your build directory. The application can be run using:
 ```bash

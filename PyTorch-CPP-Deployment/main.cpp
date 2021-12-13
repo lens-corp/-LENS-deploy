@@ -14,7 +14,7 @@ int main(int argc, char *argv[]){
     //loads the model into memory
     std::cout << "Loading model" <<std::endl;
     torch::jit::script::Module module;
-    module = torch::jit::load("/usr/local/LENS-DEPLOY/PyTorch-CPP-Deployment/demo-model.pt");
+    module = torch::jit::load("../demo-model.pt");
     //comment out this line if CUDA is not available
     module.to(at::kCUDA);
     std::cout<<"Model loaded"<<std::endl;
@@ -34,7 +34,7 @@ int main(int argc, char *argv[]){
     inputs.push_back(images);
     at::Tensor output = module.forward(inputs).toTensor();
     //prints the output
-	std::cout << output << '\n';
+	std::cout<<output<<std::endl;
     outputs_array.push_back(output);
     }
 }
