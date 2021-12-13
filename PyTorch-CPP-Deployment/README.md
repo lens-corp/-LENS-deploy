@@ -53,7 +53,7 @@ cd .. && cd ..
 This installs all the static libraries required for Opencv and OpenCV itself as well. The next step now is to build the application. This can be done using:
 ```bash
 mkdir build && cd build
-cmake -DCMAKE_PREFIX_PATH=$(pwd)/../libtorch .. && make -j32
+cmake -DCMAKE_PREFIX_PATH=$(pwd)/../src/libtorch .. && make -j32
 ```
 This would add an application by name of infer-app in your build directory. The application can be run using:
 ```bash
@@ -61,7 +61,7 @@ This would add an application by name of infer-app in your build directory. The 
 ```
 
 ### Converting PyTorch Model to JIT
-A sample code has been added in this [file](model-to-jit..py) to convert a PyTorch model to JIT Traced model which can be used in C++.
+A sample code has been added in this [file](model-to-jit.py) to convert a PyTorch model to JIT Traced model which can be used in C++.
 
 ### License
 Copyright © 2020, LENS Inc.
